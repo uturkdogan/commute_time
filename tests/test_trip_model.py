@@ -18,4 +18,3 @@ def test_trip_model():
     session.commit()
     q = session.query(Trip)
     assert q.count() > 0
-

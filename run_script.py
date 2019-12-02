@@ -12,4 +12,3 @@ if not os.path.isdir('data'):
 from commute_time import save_trip
 
 save_trip.main()
-

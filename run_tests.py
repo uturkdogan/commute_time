@@ -9,4 +9,3 @@ if not os.path.isdir('data'):
 logging.basicConfig(filename='data/logs.log', level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 pytest.main(['-x', 'tests'])
-

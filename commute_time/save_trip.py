@@ -56,4 +56,3 @@ def main():
     engine = sqlalchemy.create_engine('sqlite:///data/trips.db')
     record_trip(engine)
     engine.dispose()
-

@@ -11,6 +11,10 @@ def test_get_current_location():
     assert lat and long
 
 def test_record_trip():
+    if os.path.isfile('data/test_trips.db'):
+        os.remove('data/test_trips.db')
+    if not os.path.isdir('data'):
+        os.mkdir('data')
     engine = sqlalchemy.create_engine('sqlite:///data/test_trips.db')
     save_trip.record_trip(engine)
     assert os.path.isfile('data/test_trips.db')
@@ -18,4 +22,3 @@ def test_record_trip():
     session = sessionmaker(bind=engine)()
     open_trips = session.query(Trip).filter_by(completed=False).order_by(Trip.id.desc())
     assert open_trips.count() == 1
-
